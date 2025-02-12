@@ -23,15 +23,15 @@ class ValidacaoController
 
         $arrayResponse = [
             'numeroCartao' => $numeroCartao,
-            'valid' => false
+            'valido' => false
         ];
 
         // Lógica de validação do cartão de crédito
         $bandeira = $this->cartaoModel->detectarBandeira($numeroCartao);
 
         if($bandeira){
+            $arrayResponse['valido'] = true;
             $arrayResponse['bandeira'] = $bandeira;
-            $arrayResponse['valid'] = true;
         }
 
         $response->getBody()->write(json_encode($arrayResponse));
