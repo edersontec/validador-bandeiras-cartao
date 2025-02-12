@@ -1,0 +1,20 @@
+{
+    "name": "edersontec/validador-bandeiras-cartao",
+    "description": "API validação numero cartão",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ederson Fernandes",
+            "email": "edersontec@outlook.com"
+        }
+    ],
+    "require": {
+        "slim/slim": "4.*",
+        "slim/psr7": "^1.7"
+    }
+}
