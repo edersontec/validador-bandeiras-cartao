@@ -3,12 +3,11 @@
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\App;
+use App\Controllers\ValidacaoController;
 
 return function (App $app) {
-    $app->get('/validar', function (Request $request, Response $response, $args) {
-        $response->getBody()->write("Hello world!");
-        return $response;
-    });
+
+    $app->post( '/validar', [ValidacaoController::class, 'validarCartao'] );
 
     // Outras rotas
 };
