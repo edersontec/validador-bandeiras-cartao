@@ -57,7 +57,10 @@ O objetivo é criar um validador de bandeiras de cartão de crédito com assist�
 
 2. Clone o repositório: git clone https://github.com/edersontec/validador-bandeiras-cartao.git
 
-3. Baixe as dependências: composer install
+3. Baixe as dependências:
+    ```
+    composer install
+    ```
 
 4. Prepare as variáveis de ambiente:
     - O arquivo *env.example* é um arquivo de exemplo para auxiliar na instalação da aplicação, basta preencher as informações
@@ -70,14 +73,14 @@ O objetivo é criar um validador de bandeiras de cartão de crédito com assist�
     composer test
     ```
 
-10. Execute a aplicação usando o servidor embutido do PHP
+6. Execute a aplicação usando o servidor embutido do PHP
     ```
     composer start
     ```
 
 ## Como usar este projeto
 
-1. Realize uma requisição na API.
+Realize uma requisição na API.
 
 - Exemplo de requisição curl em linha de comando no 'Git Bash':
 
@@ -124,5 +127,5 @@ Penso que comunidades como Stack Overflow ainda serão de grande importância pa
 
 ## Contribuidores
 
-Sinta-se livre para para contribuir com o projeto
+Sinta-se livre para contribuir com o projeto
 
