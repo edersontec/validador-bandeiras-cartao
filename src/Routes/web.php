@@ -5,10 +5,13 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\App;
 use Slim\Exception\HttpNotFoundException;
 use App\Controllers\ValidacaoController;
+use App\Middleware\AuthMiddleware;
 
 return function (App $app) {
 
-    $app->post('/validar', [ValidacaoController::class, 'validarCartao']);
+    $app->addBodyParsingMiddleware();
+
+    $app->post('/api/validarNumeroCartao', [ValidacaoController::class, 'validarNumeroCartao'])->add(new AuthMiddleware());
 
     // Outras rotas
 

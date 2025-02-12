@@ -16,7 +16,7 @@ class ValidacaoController
         $this->cartaoModel = new CartaoModel();
     }
 
-    public function validarCartao(Request $request, Response $response, $args)
+    public function validarNumeroCartao(Request $request, Response $response, $args)
     {
         $data = $request->getParsedBody();
         $numeroCartao = $data['numeroCartao'] ?? '';
