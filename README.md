@@ -97,27 +97,27 @@ curl --location 'http://localhost:8080/api/validarNumeroCartao' \ --header 'Cont
 
 ## Reflexão
 
-A proposta foi utilizar os recursos do GitHub Copilot para geração de código com pouca intervenção do programador. Em geral ele teve êxito nas tarefas solicitadas, e não obteve êxito em outras (prompts mau formulados contribuiram para isso).
+A proposta foi utilizar os recursos do GitHub Copilot para geração de código com pouca intervenção do programador. Em geral ele teve êxito nas tarefas solicitadas, e não obteve êxito em outras (prompts mau formulados contribuíram para isso).
 
-Penso que caberá ao programador "agir como piloto / ser o maestro / saber o que está fazendo / entender os príncipios da boa programação", pois será necessário conhecimento para criar o prompt correto, validar o retorno gerado pela IA e fazer as adequações necessárias no código.
+Penso que caberá ao programador "agir como piloto / ser o maestro / saber o que está fazendo / entender os princípios da boa programação", pois será necessário conhecimento para criar o prompt correto, validar o retorno gerado pela IA e fazer as adequações necessárias no código.
 
 Repito: sempre valide o que IA gerar.
 
-Penso que comunidades como Stack Overflow ainda serão de grande importância para questões mais específicas ou quando a IA começar a "viajar na maionese / ter alucinações / reescrever a mesma mais de uma vez"
+Penso que comunidades como Stack Overflow ainda serão de grande importância para questões mais específicas ou quando a IA começar a "viajar na maionese / ter alucinações / reescrever a mesma solução mais de uma vez"
 
 ### Processos em que GitHub Copilot agiu "com sucesso":
 
 - criação da estrutura de pastas recomendada para uma API
 - criação de rotas
 - criação de Controller para validar número do cartão
-- criação de funções regex apartir de documento explicativo
+- criação de funções regex a partir de documento explicativo
 - criação de um middleware de autenticação usando Bearer tokens
 - criação de estrutura para testes unitários
 - criação de testes unitários básicos
 
 ### Processos em que GitHub Copilot agiu "com falha inicialmente":
 
-- criação da lógica de négocio no Controller e não no Model
+- criação da lógica de negócio no Controller e não no Model
 - capturar qualquer outra rota no framework Slim que não esteja definida e retornar uma mensagem personalizada em vez de apresentar uma exceção
 - receber dados da API via JSON em vez de formulário (form-data)
 - lógica para buscar variáveis de ambiente (.env)
