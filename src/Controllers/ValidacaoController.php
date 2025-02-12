@@ -21,13 +21,18 @@ class ValidacaoController
         $data = $request->getParsedBody();
         $numeroCartao = $data['numeroCartao'] ?? '';
 
-        // Lógica de validação do cartão de crédito
-        $isValid = $this->cartaoModel->detectarBandeira($numeroCartao);
-
         $arrayResponse = [
             'numeroCartao' => $numeroCartao,
-            'valid' => $isValid
+            'valid' => false
         ];
+
+        // Lógica de validação do cartão de crédito
+        $bandeira = $this->cartaoModel->detectarBandeira($numeroCartao);
+
+        if($bandeira){
+            $arrayResponse['bandeira'] = $bandeira;
+            $arrayResponse['valid'] = true;
+        }
 
         $response->getBody()->write(json_encode($arrayResponse));
         return $response->withHeader('Content-Type', 'application/json');
