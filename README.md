@@ -38,54 +38,59 @@ O objetivo é criar um validador de bandeiras de cartão de crédito com assist�
 - PSR-7 (padrão para modelar mensagens HTTP)
 - Api protegida por Bearer Token
 - Testes unitários
+- Docker
 
 ## Tecnologias utilizadas
 
 - [PHP](https://www.php.net/): Linguagem de programação
 - [Slim Framework](https://www.slimframework.com/): Micro Framework PHP
 - [GitHub Copilot](https://code.visualstudio.com/docs/copilot/overview): ferramenta de inteligência artificial desenvolvida pelo GitHub em conjunto com a OpenAI para auxiliar o desenvolvedor de software
+- [Docker](https://www.docker.com/): tecnologia de conteinerização de aplicações
 
 ## Pré-requisitos
 
 - [PHP](https://www.php.net/)
 - [git](https://git-scm.com/)
 - [Composer](https://getcomposer.org/)
+- [Docker](https://www.docker.com/)
 
 ## Como instalar este projeto
 
-1. Garanta que o PHP 8.*, git, Composer estejam instalados
+1. Garanta que o PHP 8.3, git, Composer e Docker Compose estejam instalados
 
 2. Clone o repositório: git clone https://github.com/edersontec/validador-bandeiras-cartao.git
 
-3. Baixe as dependências:
-    ```
-    composer install
-    ```
+### Caso escolha executar utilizando servidor embutido do PHP
 
-4. Prepare as variáveis de ambiente:
+3. Prepare as variáveis de ambiente:
     - O arquivo *env.example* é um arquivo de exemplo para auxiliar na instalação da aplicação, basta preencher as informações
     - Faça uma cópia de *env.example* e renomeie-a para *.env*
     - Crie um token de autenticação
         - Exemplo: BEARER_TOKEN="1234567890"
 
-5. Execute os testes para garantir integridade do projeto
+4. Baixe as dependências, execute os testes e inicie o servidor web:
     ```
-    composer test
+    composer install && composer test && composer start
     ```
 
-6. Execute a aplicação usando o servidor embutido do PHP
+### Caso escolha executar utilizando ambiente Docker
+
+3. Prepare as variáveis de ambiente:
+    - Não é necessário nenhuma ação pois durante o build da imagem (arquivo Dockerfile) é adicionado um token de autenticação ao arquivo .env (para fins didáticos)
+
+4. Inicie o servidor usando Docker Compose
     ```
-    composer start
+    docker compose up
     ```
 
 ## Como usar este projeto
 
 Realize uma requisição na API.
 
-- Exemplo de requisição curl em linha de comando no 'Git Bash':
+- Exemplo de requisição curl em linha de comando:
 
 ```sh
-curl --location 'http://localhost:8080/api/validarNumeroCartao' \ --header 'Content-Type: application/json' \ --header 'Authorization: Bearer 1234567890' \ --data '{"numeroCartao": "4123456789012456"}'
+curl --location "http://localhost:8080/api/validarNumeroCartao" --header "Content-Type: application/json" --header "Authorization: Bearer 1234567890" --data "{\"numeroCartao\": \"4123456789012456\"}"
 ```
 
 - Exemplo de retorno:
