@@ -1,0 +1,11 @@
+services:
+  web:
+    build: .
+    ports: 
+      - "8080:80"
+    restart: always
+
+    # Para ambiente Dev: montar o código-fonte como um volume
+    # Motivo: Isso permite que qualquer mudança feita no diretório seja refletida imediatamente no contêiner.
+    # volumes:
+    #  - ".:/var/www/html"
